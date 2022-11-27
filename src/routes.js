@@ -3,7 +3,7 @@ import TheProducts from "./views/TheProducts.vue";
 import ProductsDetails from "./views/ProductsDetails.vue";
 import TheCart from "./views/TheCart.vue";
 
-export const routes = [
+const routes = [
   {
     path: "/products",
     name: "proucts",
@@ -26,4 +26,11 @@ export const routes = [
     name: "addproduct",
     component: AdminForm,
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "notfound",
+    redirect: "/products",
+  },
 ];
+
+export default routes;
