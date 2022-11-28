@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <nav-bar></nav-bar>
-    <v-main>
+    <v-main class="flex flex-col align-center">
       <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import NavBar from "./components/NavBar.vue";
 
 //data

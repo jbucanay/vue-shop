@@ -1,13 +1,13 @@
 <template>
   <div>testing page</div>
-  <h3>{{ testing.name }}</h3>
 </template>
 
 <script setup>
 import { storeToRefs } from "pinia";
 import { productsStore } from "../stores/ProductsStore";
 
-const testing = productsStore();
+// store
+const { products, createProduct } = storeToRef(productsStore);
 </script>
 
 <style scoped></style>

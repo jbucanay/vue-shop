@@ -1,6 +1,4 @@
-<template>
-  <div>cart page</div>
-</template>
+<template></template>
 
 <script setup></script>
 

@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "MacBook Pro",
+      "price": 4000,
+      "quantity": 300,
+      "type": "computer",
+      "image": "https://www.google.com/aclk?sa=l&ai=DChcSEwiL-uCXktD7AhWohVoFHQDVBcYYABAFGgJ2dQ&sig=AOD64_0U7XbHWyUtgsQqjeFW8XRaF9BFwA&adurl&ctype=5&ved=2ahUKEwiWmtSXktD7AhU8m4QIHWhoDowQvhd6BAgBEHU"
+    },
+    {
+      "id": 1,
+      "name": "MacBook Pro",
+      "price": 4000,
+      "quantity": 300,
+      "type": "computer",
+      "image": "https://www.google.com/aclk?sa=l&ai=DChcSEwiL-uCXktD7AhWohVoFHQDVBcYYABAFGgJ2dQ&sig=AOD64_0U7XbHWyUtgsQqjeFW8XRaF9BFwA&adurl&ctype=5&ved=2ahUKEwiWmtSXktD7AhU8m4QIHWhoDowQvhd6BAgBEHU"
+    }
+  ]
+}
