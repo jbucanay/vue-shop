@@ -8,5 +8,6 @@
     rounded="30"
   >
     <slot name="adminForm"></slot>
+    <slot name="displayproducts"></slot>
   </v-card>
 </template>

@@ -5,6 +5,11 @@ export const productsStore = defineStore("products", {
   state: () => ({
     products: [],
   }),
+  getters: {
+    productsFromStore() {
+      return this.products.length > 0 && this.products;
+    },
+  },
   actions: {
     getProducts() {
       axios
@@ -21,7 +26,20 @@ export const productsStore = defineStore("products", {
         });
     },
     createProduct(productInfo) {
-      console.log("hit");
+      const { id, name, price, quantity, type, image } = productInfo;
+      axios
+        .post("http://localhost:3000/products", {
+          id,
+          name,
+          price,
+          quantity,
+          type,
+          image,
+        })
+        .then((res) => {})
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
 });

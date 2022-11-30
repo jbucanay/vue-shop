@@ -7,7 +7,12 @@
           <label for="name">Name</label><br />
           <input type="text" name="name" v-model="name" /><br />
           <label for="price">Price</label><br />
-          <input type="number" name="price" v-model.number="price" /><br />
+          <input
+            type="number"
+            name="price"
+            v-model.number="price"
+            min="1"
+          /><br />
           <label for="quantity">Quantity</label><br />
           <input
             type="number"
@@ -21,6 +26,7 @@
             <option>Accessories</option>
             <option>Networking</option>
             <option>Drivers & Storage</option>
+            <option>Computer</option>
             <option>Computer Parts & Components</option>
             <option>Printers & Ink</option>
             <option>Software</option>
@@ -29,14 +35,9 @@
           <br />
           <label for="image">Image</label><br />
           <input type="text" name="image" v-model="image" />
-          <v-btn
-            flat
-            class="bg-orange-500 text-black"
-            rounded="0"
-            type="submit"
-            @click="sendData"
-            >Submit</v-btn
-          >
+          <base-button @click="sendData" type="submit">
+            <template #adminform> Submit </template>
+          </base-button>
         </form>
       </v-card-text>
     </template>
@@ -47,6 +48,7 @@
 import { storeToRefs } from "pinia";
 import { onMounted, ref } from "vue";
 import BaseCard from "../components/BaseCard.vue";
+import BaseButton from "@/components/BaseButton.vue";
 
 import { productsStore } from "../stores/ProductsStore";
 
@@ -65,23 +67,23 @@ const sendData = () => {
   if (name !== "" || price !== 0 || quantity !== 0 || type !== "") {
     const productValues = {
       id: Date.now(),
-      name,
-      price,
-      quantity,
-      type,
-      image,
+      name: name.value,
+      price: price.value,
+      quantity: quantity.value,
+      type: type.value,
+      image: image.value,
     };
-
-    console.log(products);
-
+    // console.log(productValues);
     store.createProduct(productValues);
+    name.value = "";
+    type.value = "";
+    image.value = "";
+    price.value = 0;
+    quantity.value = 0;
   }
 };
 
 //lifecycle hooks
-onMounted(() => {
-  store.getProducts();
-});
 </script>
 
 <style scoped>
