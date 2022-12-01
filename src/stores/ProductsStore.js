@@ -6,7 +6,7 @@ export const productsStore = defineStore("products", {
     products: [],
   }),
   getters: {
-    productsFromStore() {
+    returnProducts() {
       return this.products.length > 0 && this.products;
     },
   },

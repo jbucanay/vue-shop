@@ -2,7 +2,7 @@ import App from "./App.vue";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import { createRouter, createWebHistory } from "vue-router";
-import { productsStore } from "./stores/ProductsStore";
+import piniaPersist from "pinia-plugin-persist";
 import routes from "./routes";
 
 import "./style.css";
@@ -10,8 +10,9 @@ import { registerPlugins } from "@/plugins";
 
 //lodash
 
-//store
+//pinia store and persist
 const pinia = createPinia();
+pinia.use(piniaPersist);
 
 //router
 const router = createRouter({

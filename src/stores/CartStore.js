@@ -6,4 +6,18 @@ export const useCartStore = defineStore("cart", {
     bill: 0,
     quantity: 0,
   }),
+  actions: {
+    addItem(foundItem) {
+      console.log(foundItem);
+    },
+  },
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: "Cart",
+        storage: localStorage,
+      },
+    ],
+  },
 });
