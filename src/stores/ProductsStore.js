@@ -17,7 +17,7 @@ export const productsStore = defineStore("products", {
         .then((res) => {
           if (res.status === 200 && res.data.length > 0) {
             for (const product of res.data) {
-              this.products.push(product);
+              this.products.unshift(product);
             }
           }
         })

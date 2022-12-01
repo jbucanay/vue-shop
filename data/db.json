@@ -23,6 +23,22 @@
       "quantity": 1,
       "type": "Computer",
       "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6500/6500335_sd.jpg;maxHeight=640;maxWidth=550"
+    },
+    {
+      "id": 1669833284864,
+      "name": "Sim Card",
+      "price": 1,
+      "quantity": 1,
+      "type": "Computer Parts & Components",
+      "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5706/5706132_sa.jpg;maxHeight=200;maxWidth=300"
+    },
+    {
+      "id": 1669833526824,
+      "name": "A SIM card",
+      "price": 1,
+      "quantity": 1,
+      "type": "Computer Parts & Components",
+      "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5706/5706132_sa.jpg;maxHeight=200;maxWidth=300"
     }
   ]
 }

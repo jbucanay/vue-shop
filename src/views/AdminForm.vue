@@ -15,6 +15,7 @@
           /><br />
           <label for="quantity">Quantity</label><br />
           <input
+            min="1"
             type="number"
             name="quantity"
             v-model.number="quantity"
@@ -47,18 +48,22 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import BaseCard from "../components/BaseCard.vue";
 import BaseButton from "@/components/BaseButton.vue";
 
 import { productsStore } from "../stores/ProductsStore";
+
+//router
+const router = useRouter();
 
 // store
 const store = productsStore();
 const { products } = storeToRefs(store);
 //data
 const name = ref("");
-const price = ref(0);
-const quantity = ref(0);
+const price = ref(1);
+const quantity = ref(1);
 const type = ref("");
 const image = ref("");
 
@@ -80,6 +85,7 @@ const sendData = () => {
     image.value = "";
     price.value = 0;
     quantity.value = 0;
+    router.push("/products");
   }
 };
 

@@ -3,7 +3,11 @@
     <template #displayproducts>
       <v-img height="250" :src="image"></v-img>
       <v-card-title>{{ name }}</v-card-title>
-      <v-card-subtitle>${{ price }}</v-card-subtitle>
+      <v-card-text class="font-extrabold text-black">${{ price }}</v-card-text>
+      <v-tab class="capitalize underline" flat color="blue" :to="showDetails"
+        >See details</v-tab
+      >
+      <router-view></router-view>
       <v-card-actions>
         <base-button>
           <template #eachproduct> Add to cart </template>
@@ -16,20 +20,44 @@
 <script setup>
 import BaseCard from "@/components/BaseCard.vue";
 import BaseButton from "./BaseButton.vue";
+import { computed } from "vue";
+
 /******************* props **********/
 const props = defineProps({
-  id: Number,
-  price: Number,
-  quantity: Number,
-  type: String,
-  image: String,
-  name: String,
+  id: {
+    type: Number,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+});
+
+/******************* methods **********/
+
+/******************* computed properties **********/
+const showDetails = computed(() => {
+  return {
+    name: "product-details",
+    params: { id: props.id },
+    props: { quantity: props.quantity, type: props.type },
+  };
 });
 </script>
-
-<!-- id	1
-name	"MacBook Pro"
-price	4000
-quantity	300
-type	"computer"
-image -->
