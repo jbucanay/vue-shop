@@ -24,8 +24,6 @@ import { useCartStore } from "@/stores/CartStore";
 const Productstore = productsStore();
 const { returnProducts } = storeToRefs(Productstore);
 
-const cartStore = useCartStore();
-
 /*************** Lifecycle hooks ******************/
 onMounted(() => {
   Productstore.getProducts();
@@ -37,15 +35,6 @@ onBeforeUnmount(() => {
 });
 
 /*************** methods ******************/
-
-const addToCart = (id) => {
-  const foundProduct = Productstore.products.filter((item) => {
-    return item.id == id;
-  });
-  console.log(foundProduct);
-
-  // cartStore.addItem(foundProduct);
-};
 </script>
 
 <style scoped></style>

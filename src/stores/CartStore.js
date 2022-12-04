@@ -7,17 +7,12 @@ export const useCartStore = defineStore("cart", {
     quantity: 0,
   }),
   actions: {
-    addItem(foundItem) {
-      console.log(foundItem);
+    addProductToCart(product) {
+      const { id, name, price, selectedQuantity, type, image } = product;
+      this.quantity += selectedQuantity;
+      this.bill += price * selectedQuantity;
+      this.items.unshift(product);
     },
   },
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        key: "Cart",
-        storage: localStorage,
-      },
-    ],
-  },
+  persist: true,
 });

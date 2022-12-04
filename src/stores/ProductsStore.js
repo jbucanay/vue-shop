@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
+//Product store used to manage products. Getters == computed properties, actions == methods, state == data to manage
 export const productsStore = defineStore("products", {
   state: () => ({
     products: [],
@@ -40,6 +41,17 @@ export const productsStore = defineStore("products", {
         .catch((e) => {
           console.log(e);
         });
+    },
+    updateProductGoingCart(id, quantity) {
+      axios
+        .patch(`http://localhost:3000/products/${id}`, {
+          id,
+          quantity,
+        })
+        .then((res) => {
+          this.getProducts();
+        })
+        .catch((e) => console.log(e));
     },
   },
 });
