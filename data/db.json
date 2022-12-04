@@ -4,23 +4,23 @@
       "id": 2,
       "name": "MacBook Pro",
       "price": 4000.99,
-      "quantity": 3,
+      "quantity": 4,
       "type": "computer",
       "image": "https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/apple_mbp_16_sg_25_16_2_macbook_pro_with_1634580931_1668323.jpg"
     },
     {
       "id": 1,
       "name": "Sumsung",
-      "price": 900.3,
-      "quantity": 5,
+      "price": 900.31,
+      "quantity": 0,
       "type": "computer",
       "image": "https://t-mobile.scene7.com/is/image/Tmusprod/Samsung-Galaxy-S22-Bora-Purple-rightimage"
     },
     {
       "id": 1669833284864,
       "name": "Sim Card",
-      "price": 40.8,
-      "quantity": 8,
+      "price": 40.81,
+      "quantity": 0,
       "type": "Computer Parts & Components",
       "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5706/5706132_sa.jpg;maxHeight=200;maxWidth=300"
     }

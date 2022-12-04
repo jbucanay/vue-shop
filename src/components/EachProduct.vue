@@ -1,7 +1,7 @@
 <template>
   <base-card>
     <template #displayproducts>
-      <v-img height="250" :src="image" class="mt-2"></v-img>
+      <v-img height="180" :src="image" class="mt-2 rounded-full"></v-img>
       <v-card-title>{{ name }}</v-card-title>
       <v-card-subtitle>{{ type }}</v-card-subtitle>
       <v-card-text class="font-extrabold text-sky-500"
@@ -80,7 +80,6 @@ const addToCart = (product) => {
   const quantityRemainder = props.quantity - selectedQuantity;
   cartStore.addProductToCart(product);
   productStore.updateProductGoingCart(id, quantityRemainder);
-  //create an async function to let the system continue while we update the json server
 };
 
 /******************* computed properties **********/
