@@ -3,7 +3,7 @@
     <v-tabs class="px-20 flex justify-start">
       <v-tab class="capitalize" color="orange" to="/products"> Products</v-tab>
       <v-tab class="capitalize" color="orange" to="/cart"
-        >Cart {{ cartStore.quantity }}</v-tab
+        >Cart {{ cartStore.getCart.length }}</v-tab
       >
       <v-tab class="capitalize" color="orange" to="/addproduct">Admin</v-tab>
     </v-tabs>
