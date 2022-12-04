@@ -11,6 +11,7 @@
     "axios": "^1.2.0",
     "json-server": "^0.17.1",
     "pinia": "^2.0.27",
+    "pinia-plugin-persistedstate": "^3.0.1",
     "roboto-fontface": "*",
     "vue": "^3.2.38",
     "vue-router": "^4.0.13",

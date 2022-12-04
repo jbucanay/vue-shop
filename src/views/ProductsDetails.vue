@@ -1,7 +1,26 @@
 <template>
-  <div>products detail page</div>
+  <v-card-text>{{ quantity }}</v-card-text>
+  <v-card-subtitle>{{ type }}</v-card-subtitle>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+
+// routing
+const route = useRoute();
+// Props
+const props = defineProps({
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+});
+console.log(props);
+console.log(route.params);
+</script>
 
 <style scoped></style>

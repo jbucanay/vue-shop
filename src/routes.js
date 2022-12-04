@@ -11,7 +11,9 @@ const routes = [
     children: [
       {
         path: ":id",
+        name: "product-details",
         component: ProductsDetails,
+        props: true,
       },
     ],
   },
