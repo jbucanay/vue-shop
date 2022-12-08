@@ -50,12 +50,12 @@
 import BaseCard from "@/components/BaseCard.vue";
 import { useCartStore } from "@/stores/CartStore";
 import BaseButton from "@/components/BaseButton.vue";
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 
 /******************* store **********/
 const cartStore = useCartStore();
-const bill = Number(cartStore.calculateBill).toLocaleString();
-const cartItems = cartStore.getCart;
+const bill = computed(() => Number(cartStore.calculateBill).toLocaleString());
+const cartItems = computed(() => cartStore.getCart);
 
 /******************* lifecycle hooks **********/
 onMounted(() => {
