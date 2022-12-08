@@ -1,10 +1,10 @@
 <template>
-  <base-card>
+  <base-card width="600">
     <template #displayproducts>
       <v-img height="180" :src="image" class="mt-2 rounded-full"></v-img>
       <v-card-title>{{ name }}</v-card-title>
       <v-card-subtitle>{{ type }}</v-card-subtitle>
-      <v-card-text class="font-extrabold text-sky-500"
+      <v-card-text class="font-extrabold text-sky-500 text-xl"
         >${{ price }}</v-card-text
       >
       <v-card-text>

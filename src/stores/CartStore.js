@@ -10,7 +10,6 @@ export const useCartStore = defineStore("cart", {
       this.items.unshift(product);
     },
     removeFromCart(id) {
-      console.log(id);
       this.items = this.items.filter((item) => item.id !== id);
     },
   },
