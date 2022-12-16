@@ -4,7 +4,7 @@
       "id": 2,
       "name": "MacBook Pro",
       "price": 4000.99,
-      "quantity": 3,
+      "quantity": 2,
       "type": "computer",
       "image": "https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/apple_mbp_16_sg_25_16_2_macbook_pro_with_1634580931_1668323.jpg"
     },
@@ -20,7 +20,7 @@
       "id": 1669833284864,
       "name": "Sim Card",
       "price": 40.81,
-      "quantity": 3,
+      "quantity": 0,
       "type": "Computer Parts & Components",
       "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5706/5706132_sa.jpg;maxHeight=200;maxWidth=300"
     },
@@ -31,6 +31,14 @@
       "quantity": 1,
       "type": "Networking",
       "image": "https://i.ebayimg.com/images/g/O6EAAOSwsfRc6DGc/s-l500.jpg"
+    },
+    {
+      "id": 1670541095901,
+      "name": "Acer Chromebook",
+      "price": 119.3,
+      "quantity": 1,
+      "type": "Computer",
+      "image": "https://cdn11.bigcommerce.com/s-ihcy15dd0/images/stencil/1280x1280/products/675/1848/AcerR11-Out__27660.1660951873.jpg?c=2"
     }
   ]
 }
