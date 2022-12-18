@@ -50,7 +50,9 @@ export const productsStore = defineStore("products", {
         .patch(`http://localhost/api/products/${id}`, {
           quantity,
         })
-        .then((res) => {})
+        .then((res) => {
+          this.getProducts();
+        })
         .catch((e) => console.log(e));
     },
   },

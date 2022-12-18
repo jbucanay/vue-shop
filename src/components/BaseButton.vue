@@ -3,5 +3,6 @@
     <slot name="adminform"></slot>
     <slot name="eachproduct"></slot>
     <slot name="cartremove"></slot>
+    <slot name="login"></slot>
   </v-btn>
 </template>
