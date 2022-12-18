@@ -2,8 +2,18 @@ import AdminForm from "./views/AdminForm.vue";
 import TheProducts from "./views/TheProducts.vue";
 import ProductsDetails from "./views/ProductsDetails.vue";
 import TheCart from "./views/TheCart.vue";
+import LoginUser from "./views/LoginUser.vue";
 
 const routes = [
+  {
+    path: "/",
+    redirect: "/login",
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginUser,
+  },
   {
     path: "/products",
     name: "proucts",
