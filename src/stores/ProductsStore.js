@@ -14,7 +14,7 @@ export const productsStore = defineStore("products", {
   actions: {
     getProducts() {
       axios
-        .get("http://localhost:3000/products")
+        .get("http://localhost/api/products")
         .then((res) => {
           if (res.status === 200 && res.data.length > 0) {
             for (const product of res.data) {

@@ -10,6 +10,7 @@
       <v-card-text>
         <label for="quantity">Quantity</label><br />
         <input
+          :disabled="disabled"
           type="number"
           :min="1"
           :max="quantity"
@@ -22,7 +23,6 @@
         <base-button
           @click="addToCart({ id, name, price, selectedQuantity, type, image })"
           :disabled="disabled"
-          :class="{ 'cursor-not-allowed': disabled }"
         >
           <template #eachproduct> Add to cart </template>
         </base-button>
@@ -44,7 +44,7 @@ const cartStore = useCartStore();
 const productStore = productsStore();
 
 /******************* data **********/
-const selectedQuantity = ref(1);
+const selectedQuantity = ref();
 
 /******************* props **********/
 const props = defineProps({
@@ -78,6 +78,7 @@ const props = defineProps({
 const addToCart = (product) => {
   const { id, name, price, selectedQuantity, type, image } = product;
   const quantityRemainder = props.quantity - selectedQuantity;
+  selectedQuantity.value = "";
   cartStore.addProductToCart(product);
   productStore.updateProductGoingCart(id, quantityRemainder);
 };
