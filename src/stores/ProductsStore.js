@@ -29,7 +29,7 @@ export const productsStore = defineStore("products", {
     createProduct(productInfo) {
       const { id, name, price, quantity, type, image } = productInfo;
       axios
-        .post("http://localhost:3000/products", {
+        .post("http://localhost/api/products", {
           id,
           name,
           price,
@@ -37,7 +37,9 @@ export const productsStore = defineStore("products", {
           type,
           image,
         })
-        .then((res) => {})
+        .then((res) => {
+          console.log(res);
+        })
         .catch((e) => {
           console.log(e);
         });
@@ -45,13 +47,10 @@ export const productsStore = defineStore("products", {
     updateProductGoingCart(id, quantity) {
       // using patch vs put because patch maintains the old data and just changes requested info. Whereas put replaces the old data completely
       axios
-        .patch(`http://localhost:3000/products/${id}`, {
-          id,
+        .patch(`http://localhost/api/products/${id}`, {
           quantity,
         })
-        .then((res) => {
-          this.getProducts();
-        })
+        .then((res) => {})
         .catch((e) => console.log(e));
     },
   },

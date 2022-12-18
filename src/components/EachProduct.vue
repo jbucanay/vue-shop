@@ -15,7 +15,7 @@
           :min="1"
           :max="quantity"
           required
-          v-model.number="selectedQuantity"
+          v-model="selectedQuantity"
         />
         <span :class="['ml-3', available]"> {{ available }}</span>
       </v-card-text>
@@ -78,7 +78,6 @@ const props = defineProps({
 const addToCart = (product) => {
   const { id, name, price, selectedQuantity, type, image } = product;
   const quantityRemainder = props.quantity - selectedQuantity;
-  selectedQuantity.value = "";
   cartStore.addProductToCart(product);
   productStore.updateProductGoingCart(id, quantityRemainder);
 };

@@ -88,7 +88,6 @@ const sendData = () => {
     image !== ""
   ) {
     const productValues = {
-      id: Date.now(),
       name: name.value,
       price: Number(parseFloat(price.value).toFixed(2)),
       quantity: quantity.value,
