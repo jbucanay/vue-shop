@@ -1,6 +1,5 @@
 import AdminForm from "./views/AdminForm.vue";
 import TheProducts from "./views/TheProducts.vue";
-import ProductsDetails from "./views/ProductsDetails.vue";
 import TheCart from "./views/TheCart.vue";
 import LoginUser from "./views/LoginUser.vue";
 import LogoutUser from "./views/LogoutUser.vue";
@@ -26,15 +25,6 @@ const routes = [
     path: "/products",
     name: "proucts",
     component: TheProducts,
-    children: [
-      {
-        path: ":id",
-        name: "product-details",
-        component: ProductsDetails,
-        props: true,
-        meta: { requiresAuth: true },
-      },
-    ],
   },
   {
     path: "/cart",
