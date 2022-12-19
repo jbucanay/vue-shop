@@ -4,5 +4,6 @@
     <slot name="eachproduct"></slot>
     <slot name="cartremove"></slot>
     <slot name="login"></slot>
+    <slot name="signup"></slot>
   </v-btn>
 </template>

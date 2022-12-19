@@ -14,6 +14,9 @@
             required
             minlength="8"
           />
+          <p v-if="authStore.loginFailed" class="text-red my-1">
+            {{ authStore.loginFailed }}
+          </p>
           <base-button
             width="700"
             rounded="2"
@@ -27,16 +30,29 @@
       </v-card-text>
     </template>
   </base-card>
+  <p>New to Vuebay?</p>
+  <base-button class="bg-gray-200">
+    <template #signup> Create your Vuebay acount </template>
+  </base-button>
 </template>
 
 <script setup>
 import BaseCard from "@/components/BaseCard.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import { useAuth } from "@/stores/AuthStore";
-import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { ref, computed } from "vue";
+import { storeToRefs } from "pinia";
+
+//router
+const router = useRouter();
 
 //use authStore
 const authStore = useAuth();
+const logedIn = computed(() => authStore.isAuthenticated);
+
+// storeToRefs returns the store as a ref value so will need to use some.value like in refs to get the value, otherwise you get refs objects
+const { token, errorMessage } = storeToRefs(authStore);
 
 //data
 const email = ref("");
@@ -46,10 +62,15 @@ const password = ref("");
 const signIn = () => {
   if (email.value && password.value) {
     authStore.loginUser(email.value, password.value);
+    if (authStore.isAuthenticated) {
+      router.replace("/products");
+    }
+    if (authStore.loginFailed) {
+      email.value = "";
+      password.value = "";
+    }
   }
 };
-
-console.log(authStore.user.name);
 </script>
 
 <style scoped>

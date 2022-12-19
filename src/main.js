@@ -4,6 +4,7 @@ import { createPinia } from "pinia";
 import { createRouter, createWebHistory } from "vue-router";
 import { createPersistedState } from "pinia-plugin-persistedstate";
 import routes from "./routes";
+import { useAuth } from "./stores/AuthStore";
 
 import "./style.css";
 import { registerPlugins } from "@/plugins";
@@ -25,6 +26,16 @@ pinia.use(
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  // to and from are both route objects. must call `next`.
+  const authStore = useAuth();
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    next("/products");
+  } else {
+    next();
+  }
 });
 
 const app = createApp(App);
