@@ -19,8 +19,6 @@ const props = defineProps({
     required: true,
   },
 });
-console.log(props);
-console.log(route.params);
 </script>
 
 <style scoped></style>

@@ -27,6 +27,10 @@
       </v-card-text>
     </template>
   </base-card>
+  <p>New to Vuebay?</p>
+  <base-button class="bg-gray-200">
+    <template #signup> Create your Vuebay acount </template>
+  </base-button>
 </template>
 
 <script setup>

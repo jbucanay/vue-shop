@@ -7,7 +7,11 @@ export const useAuth = defineStore("auth", {
     token: "",
     errorMessage: "",
   }),
-  getters: {},
+  getters: {
+    isAuthenticated() {
+      return !!this.token;
+    },
+  },
   actions: {
     loginUser(email, password) {
       axios
