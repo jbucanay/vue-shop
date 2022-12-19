@@ -10,5 +10,6 @@
     <slot name="cartproduct"></slot>
     <slot name="adminForm"></slot>
     <slot name="displayproducts"></slot>
+    <slot name="login"></slot>
   </v-card>
 </template>

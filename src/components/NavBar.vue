@@ -9,6 +9,7 @@
         }}</span></v-tab
       >
       <v-tab class="capitalize" color="orange" to="/addproduct">Admin</v-tab>
+      <v-tab class="capitalize" color="orange" to="/login">Login/Signup</v-tab>
     </v-tabs>
   </v-app-bar>
 </template>
