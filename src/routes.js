@@ -3,6 +3,7 @@ import TheProducts from "./views/TheProducts.vue";
 import ProductsDetails from "./views/ProductsDetails.vue";
 import TheCart from "./views/TheCart.vue";
 import LoginUser from "./views/LoginUser.vue";
+import LogoutUser from "./views/LogoutUser.vue";
 
 const routes = [
   {
@@ -13,6 +14,13 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginUser,
+    meta: { requiresAuth: false },
+  },
+  {
+    path: "/logout",
+    name: "logout",
+    component: LogoutUser,
+    meta: { requiresAuth: true },
   },
   {
     path: "/products",
@@ -24,6 +32,7 @@ const routes = [
         name: "product-details",
         component: ProductsDetails,
         props: true,
+        meta: { requiresAuth: true },
       },
     ],
   },
@@ -32,11 +41,12 @@ const routes = [
     name: "cart",
     component: TheCart,
   },
-  // admin component: in the future will need to know how authentication works to guard this
+
   {
     path: "/addproduct",
     name: "addproduct",
     component: AdminForm,
+    meta: { requiresAuth: true },
   },
   {
     path: "/:pathMatch(.*)*",

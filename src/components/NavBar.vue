@@ -8,15 +8,36 @@
           cartStore.getCart.length
         }}</span></v-tab
       >
-      <v-tab class="capitalize" color="orange" to="/addproduct">Admin</v-tab>
-      <v-tab class="capitalize" color="orange" to="/login">Login</v-tab>
+      <v-tab
+        class="capitalize"
+        color="orange"
+        to="/addproduct"
+        v-if="authStore.isAuthenticated"
+        >Admin</v-tab
+      >
+      <v-tab
+        class="capitalize"
+        color="orange"
+        to="/login"
+        v-if="!authStore.isAuthenticated"
+        >Login</v-tab
+      >
+      <v-tab
+        class="capitalize"
+        color="orange"
+        v-if="authStore.isAuthenticated"
+        to="/logout"
+        >Logout</v-tab
+      >
     </v-tabs>
   </v-app-bar>
 </template>
 <script setup>
 import { useCartStore } from "@/stores/CartStore";
+import { useAuth } from "@/stores/AuthStore";
 import { computed } from "vue";
 
-//cartstore
+//store
 const cartStore = computed(() => useCartStore());
+const authStore = computed(() => useAuth());
 </script>
