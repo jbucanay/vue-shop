@@ -1,5 +1,5 @@
 <template>
-  <base-card width="400" rounded="1">
+  <base-card width="400" rounded="1" elevation="0">
     <template #login>
       <v-card-title>Sign in</v-card-title>
       <v-card-text>
@@ -30,8 +30,8 @@
       </v-card-text>
     </template>
   </base-card>
-  <p>New to Vuebay?</p>
-  <base-button class="bg-gray-200">
+  <p class="text-gray-700 text-sm mb-2 mt-5 amazon">New to Vuebay?</p>
+  <base-button class="bg-gray-200 normal-case" width="400" rounded="2">
     <template #signup> Create your Vuebay acount </template>
   </base-button>
 </template>
@@ -90,5 +90,33 @@ label {
 
 input:focus {
   border: orange solid 1px;
+}
+
+.amazon::after {
+  content: "";
+  width: 10%;
+  background-color: transparent;
+  display: block;
+  height: 2px;
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  top: 45%;
+  margin-top: -1px;
+  z-index: 1;
+  left: 54%;
+}
+
+.amazon::before {
+  content: "";
+  width: 10%;
+  background-color: transparent;
+  display: block;
+  height: 1px;
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  top: 45%;
+  margin-top: -1px;
+  z-index: 1;
+  right: 54%;
 }
 </style>
