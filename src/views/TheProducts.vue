@@ -1,15 +1,28 @@
 <template>
-  <each-product
-    v-for="product in returnProducts"
-    :key="product.id"
-    :name="product.name"
-    :id="product.id"
-    :price="product.price"
-    :quantity="product.quantity"
-    :type="product.type"
-    :image="product.image"
-  >
-  </each-product>
+  <v-container>
+    <v-row class="bg-red">
+      <v-col>
+        <v-sheet>Promo</v-sheet>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-sheet> Category </v-sheet>
+      </v-col>
+      <v-col>
+        <each-product
+          v-for="product in returnProducts"
+          :key="product.product_id"
+          :name="product.product_name"
+          :id="product.product_id"
+          :price="product.price"
+          :image="product.media[0].media_link"
+          :shipping-cost="product.shipping_cost"
+        >
+        </each-product>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>

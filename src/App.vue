@@ -9,10 +9,4 @@
 
 <script setup>
 import NavBar from "./components/NavBar.vue";
-
-//data
-
-//methods
-
-//computed properties
 </script>
