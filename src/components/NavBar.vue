@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar title="VuEbay" flat class="font-bold pl-20 mt-2">
+  <v-app-bar title="VuEbay" flat class="font-bold pl-20 pt-2">
     <v-container>
       <v-row justify="center" align="baseline">
         <v-text-field

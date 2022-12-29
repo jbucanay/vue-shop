@@ -1,8 +1,10 @@
 <template>
-  <v-container>
-    <v-row class="bg-red">
+  <v-container fluid class="p-0 m-0">
+    <v-row>
       <v-col>
-        <v-sheet>Promo</v-sheet>
+        <v-sheet>
+          <discount-carousel></discount-carousel>
+        </v-sheet>
       </v-col>
     </v-row>
     <v-row>
@@ -30,6 +32,7 @@ import EachProduct from "../components/EachProduct.vue";
 import { storeToRefs } from "pinia";
 import { onMounted, onBeforeUnmount } from "vue";
 import { productsStore } from "../stores/ProductsStore";
+import DiscountCarousel from "@/components/DiscountCarousel.vue";
 
 /*************** store ******************/
 const Productstore = productsStore();
