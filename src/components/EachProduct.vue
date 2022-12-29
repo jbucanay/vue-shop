@@ -85,8 +85,6 @@ const priceAfterDiscount = computed(() => {
 const hasDiscount = computed(() => {
   return priceAfterDiscount.value != props.price;
 });
-
-console.log(priceAfterDiscount.value, props.price);
 </script>
 
 <style scoped></style>

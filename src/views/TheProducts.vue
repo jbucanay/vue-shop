@@ -10,7 +10,7 @@
     <v-row class="mx-13">
       <v-col>
         <v-sheet>
-          <h3 class="font-medium">Shop by Category</h3>
+          <the-categories></the-categories>
         </v-sheet>
       </v-col>
       <v-col
@@ -53,6 +53,7 @@ import { storeToRefs } from "pinia";
 import { onMounted, onBeforeUnmount, computed, ref } from "vue";
 import { productsStore } from "../stores/ProductsStore";
 import DiscountCarousel from "@/components/DiscountCarousel.vue";
+import TheCategories from "@/components/TheCategories.vue";
 
 /*************** data ******************/
 const selectItems = ref(["Featured items", "Lowest Price", "Highest Price"]);
