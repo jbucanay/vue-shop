@@ -9,7 +9,9 @@
     </v-row>
     <v-row class="mx-13">
       <v-col>
-        <v-sheet> Category </v-sheet>
+        <v-sheet>
+          <h3 class="font-medium">Shop by Category</h3>
+        </v-sheet>
       </v-col>
       <v-col
         class="grid grid-cols-4 border-solid border border-gray-500 rounded-md mt-6"
