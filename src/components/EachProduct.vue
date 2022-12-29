@@ -1,15 +1,32 @@
 <template>
-  <base-card width="240.5" rounded="2" variant="flat" elevation="0">
+  <base-card
+    width="240.5"
+    rounded="4"
+    variant="flat"
+    elevation="0"
+    class="mb-4"
+  >
     <template #eachproduct>
       <v-sheet
         class="bg-cover bg-center h-60"
         :style="`background-image: url(${image});`"
         fill-height
       ></v-sheet>
-      <!-- <v-img :src="image"></v-img> -->
-      <v-card-title>{{ name }}</v-card-title>
-      <v-card-text class="font-extrabold text-black-500 text-xl"
-        >${{ price }}</v-card-text
+      <v-card-text
+        class="font-medium text-wrap text-base tracking-normal leading-normal pb-0"
+        >{{ name }}</v-card-text
+      >
+      <v-card-text
+        class="font-extrabold text-black-500 text-xl pb-1 mb-1 tracking-tight"
+        >${{ priceAfterDiscount }}</v-card-text
+      >
+      <v-card-text
+        class="pt-0 mt-0 text-gray-600 text-sm tracking-tight"
+        v-if="hasDiscount"
+      >
+        Was:
+        <span class="line-through">${{ price }} </span> |
+        {{ discount.discount_percent }}% OFF</v-card-text
       >
       <v-card-text>{{ shippingCost }}</v-card-text>
     </template>
@@ -20,14 +37,11 @@
 import BaseCard from "@/components/BaseCard.vue";
 import { productsStore } from "../stores/ProductsStore";
 import { useCartStore } from "@/stores/CartStore";
-import { ref } from "vue";
+import { computed } from "vue";
 
 /******************* stores **********/
 const cartStore = useCartStore();
 const productStore = productsStore();
-
-/******************* data **********/
-const selectedQuantity = ref();
 
 /******************* props **********/
 const props = defineProps({
@@ -51,38 +65,28 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  discount: {
+    type: Object,
+  },
 });
-// :key="product.product_id"
-//     :name="product.product_name"
-//     :id="product.product_id"
-//     :price="product.price"
-//     :image="product.media[0].media_link"
-//     :shipping-cost="product.shipping_cost"
+
+/******************* data **********/
+const priceAfterDiscount = computed(() => {
+  let thePrice = 0;
+  if (props.discount) {
+    let discountPrice = props.price * (props.discount.discount_percent / 100);
+    thePrice = props.price - discountPrice;
+  } else {
+    thePrice = props.price;
+  }
+  return thePrice;
+});
+
+const hasDiscount = computed(() => {
+  return priceAfterDiscount.value != props.price;
+});
+
+console.log(priceAfterDiscount.value, props.price);
 </script>
 
-<style scoped>
-input {
-  width: 30%;
-  padding: 3px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid gray;
-  border-radius: 3px;
-}
-label {
-  font-weight: bolder;
-}
-
-.out {
-  color: red;
-  text-decoration: underline;
-}
-.cursor-not-allowed {
-  cursor: not-allowed !important;
-  color: white;
-}
-
-img {
-  border: red solid 2px;
-}
-</style>
+<style scoped></style>

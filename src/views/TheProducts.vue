@@ -39,6 +39,7 @@
             'https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80'
           "
           :shipping-cost="product.shipping_cost"
+          :discount="product.discount"
         >
         </each-product>
       </v-col>
@@ -58,9 +59,6 @@ const selectItems = ref(["Featured items", "Lowest Price", "Highest Price"]);
 /*************** store ******************/
 const Productstore = productsStore();
 const { returnProducts } = storeToRefs(Productstore);
-const firstImage = computed(() => {
-  return returnProducts;
-});
 
 /*************** Lifecycle hooks ******************/
 onMounted(() => {
