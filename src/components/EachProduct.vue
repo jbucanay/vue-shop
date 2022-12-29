@@ -1,7 +1,12 @@
 <template>
   <base-card width="240.5" rounded="2" variant="flat" elevation="0">
     <template #eachproduct>
-      <v-img :src="image"></v-img>
+      <v-sheet
+        class="bg-cover bg-center h-60"
+        :style="`background-image: url(${image});`"
+        fill-height
+      ></v-sheet>
+      <!-- <v-img :src="image"></v-img> -->
       <v-card-title>{{ name }}</v-card-title>
       <v-card-text class="font-extrabold text-black-500 text-xl"
         >${{ price }}</v-card-text
