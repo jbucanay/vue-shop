@@ -11,6 +11,7 @@
       <v-col>
         <v-sheet>
           <the-categories></the-categories>
+          <filter-by-price></filter-by-price>
         </v-sheet>
       </v-col>
       <v-col
@@ -54,6 +55,7 @@ import { onMounted, onBeforeUnmount, computed, ref } from "vue";
 import { productsStore } from "../stores/ProductsStore";
 import DiscountCarousel from "@/components/DiscountCarousel.vue";
 import TheCategories from "@/components/TheCategories.vue";
+import FilterByPrice from "@/components/FilterByPrice.vue";
 
 /*************** data ******************/
 const selectItems = ref(["Featured items", "Lowest Price", "Highest Price"]);
