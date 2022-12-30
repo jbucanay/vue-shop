@@ -5,7 +5,11 @@
     variant="flat"
     elevation="0"
     class="mb-4"
-    :to="{ name: 'productDetails', params: { id: id } }"
+    :to="{
+      name: 'productDetails',
+      params: { id: id },
+      query: { item: productName },
+    }"
   >
     <template #eachproduct>
       <v-sheet
