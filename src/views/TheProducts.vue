@@ -32,7 +32,7 @@
           class="align-self-start"
           v-for="product in returnProducts"
           :key="product.product_id"
-          :name="product.product_name"
+          :product-name="product.product_name"
           :id="product.product_id"
           :price="product.price"
           :image="

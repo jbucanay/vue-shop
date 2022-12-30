@@ -5,6 +5,7 @@
     variant="flat"
     elevation="0"
     class="mb-4"
+    :to="{ name: 'productDetails', params: { id: id } }"
   >
     <template #eachproduct>
       <v-sheet
@@ -14,7 +15,7 @@
       ></v-sheet>
       <v-card-text
         class="font-medium text-wrap text-base tracking-normal leading-normal pb-0"
-        >{{ name }}</v-card-text
+        >{{ productName }}</v-card-text
       >
       <v-card-text
         class="font-extrabold text-black-500 text-xl pb-1 mb-1 tracking-tight"
@@ -61,7 +62,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  name: {
+  productName: {
     type: String,
     required: true,
   },

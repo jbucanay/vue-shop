@@ -3,6 +3,7 @@ import TheProducts from "./views/TheProducts.vue";
 import TheCart from "./views/TheCart.vue";
 import LoginUser from "./views/LoginUser.vue";
 import LogoutUser from "./views/LogoutUser.vue";
+import ProductDetails from "./views/ProductDetails.vue";
 
 const routes = [
   {
@@ -25,6 +26,12 @@ const routes = [
     path: "/products",
     name: "proucts",
     component: TheProducts,
+  },
+  {
+    path: "/products/:id",
+    name: "productDetails",
+    component: ProductDetails,
+    props: true,
   },
   {
     path: "/cart",
