@@ -55,5 +55,19 @@ export const productsStore = defineStore("products", {
         })
         .catch((e) => console.log(e));
     },
+    getOneProduct(id) {
+      axios
+        .get(`http://localhost/api/products/${id}`)
+        .then((res) => {
+          if (res.status === 200 && res.data.length > 0) {
+            for (const product of res.data) {
+              this.products.unshift(product);
+            }
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
   },
 });

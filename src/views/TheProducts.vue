@@ -51,7 +51,7 @@
 <script setup>
 import EachProduct from "../components/EachProduct.vue";
 import { storeToRefs } from "pinia";
-import { onMounted, onBeforeUnmount, computed, ref } from "vue";
+import { onMounted, onBeforeUnmount, ref } from "vue";
 import { productsStore } from "../stores/ProductsStore";
 import DiscountCarousel from "@/components/DiscountCarousel.vue";
 import TheCategories from "@/components/TheCategories.vue";

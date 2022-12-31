@@ -36,7 +36,6 @@ export const useAuth = defineStore("auth", {
         });
     },
     logout() {
-      console.log("clear damnit");
       this.user = {};
       this.token = "";
     },
