@@ -1,5 +1,4 @@
 <template>
-  <!-- <v-card class="mx-auto pa-2" max-width="300"> -->
   <v-list density="compact" variant="plain">
     <v-list-subheader class="font-medium text-black text-base mb-2"
       >Category</v-list-subheader
@@ -15,7 +14,6 @@
       >{{ item }}</v-list-item
     >
   </v-list>
-  <!-- </v-card> -->
 </template>
 
 <script setup>
