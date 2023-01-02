@@ -7,7 +7,6 @@
   >
     <v-row>
       <v-col>
-        <p>small images</p>
         <v-list density="compact" max-width="100">
           <v-list-item
             lines="one"
@@ -28,7 +27,6 @@
         </v-list>
       </v-col>
       <v-col>
-        <p>Big image</p>
         <v-img
           width="300"
           :src="item.media[0].media_link"
@@ -37,7 +35,6 @@
         </v-img>
       </v-col>
       <v-col>
-        <p>product details</p>
         <p>{{ item.product_name }}</p>
         <div>
           <span v-if="item.discount"
@@ -56,7 +53,25 @@
         </ul>
       </v-col>
       <v-col class="border-solid border border-gray-500 rounded-md">
-        <p>add to cart</p>
+        <span v-if="item.discount"
+          >${{
+            item.price - item.price * (item.discount.discount_percent / 100)
+          }}</span
+        >
+        <p v-else>${{ item.price }}</p>
+        <div>
+          <v-icon icon="mdi-map-marker-outline"></v-icon>
+          <span>Select Delivery Location</span>
+        </div>
+        <label for="qty">qty</label><br />
+        <select name="qty" class="border-gray-500 border-solid border">
+          <option v-for="(inventory, i) in item.inventory.quantity" :key="i">
+            {{ inventory }}
+          </option>
+        </select>
+        <base-button class="my-5 rounded-2xl w-full bg-yellow-400" rounded="3">
+          <template #cartremove> Add to Cart </template>
+        </base-button>
       </v-col>
     </v-row>
   </v-container>
@@ -66,6 +81,7 @@
 import { onMounted, onBeforeUnmount, ref, computed } from "vue";
 import { productsStore } from "../stores/ProductsStore";
 import { storeToRefs } from "pinia";
+import BaseButton from "@/components/BaseButton.vue";
 
 //data
 const items = ref(["Computers", "Shoes", "Cases"]);
