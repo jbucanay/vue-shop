@@ -1,25 +1,39 @@
 <template>
-  <v-container fluid>
+  <v-container fluid v-for="item in theProduct" :key="item.product_id">
     <v-row>
       <v-col>
-        <v-list density="compact" variant="plain">
+        <p>small images</p>
+        <v-list density="compact" max-width="100">
           <v-list-item
-            v-for="item in theProduct"
+            lines="one"
             variant="plain"
-            :key="item"
-            :value="item"
-            active-class="font-extrabold"
-            class="text-black text-sm -mt-2"
-            lines="1"
-            >{{ item.media }}</v-list-item
+            width="100"
+            v-for="media in item.media"
+            :key="media.media_id"
+            :value="media.media_link"
+            active-class="border-orange-500 border-solid border-2"
           >
+            <v-img
+              class="m-0 p-0"
+              width="100"
+              cover
+              :src="media.media_link"
+            ></v-img>
+          </v-list-item>
         </v-list>
       </v-col>
       <v-col>
-        <p>big image</p>
+        <p>Big image</p>
+        <v-img
+          width="300"
+          :src="item.media[0].media_link"
+          class="bg-red p-0 m-0"
+        >
+        </v-img>
       </v-col>
       <v-col>
         <p>product details</p>
+        <p>{{ item.product_name }}</p>
       </v-col>
       <v-col>
         <p>add to cart</p>
@@ -29,14 +43,14 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from "vue";
+import { onMounted, onBeforeUnmount, ref, computed } from "vue";
 import { productsStore } from "../stores/ProductsStore";
 import { storeToRefs } from "pinia";
 
+//data
 const items = ref(["Computers", "Shoes", "Cases"]);
 const productStore = productsStore();
 const { returnProducts: theProduct } = storeToRefs(productStore);
-const { media } = theProduct;
 
 //lifecyclehooks
 onMounted(() => {
