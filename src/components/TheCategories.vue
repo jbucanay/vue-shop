@@ -14,12 +14,14 @@
       >{{ item }}</v-list-item
     >
   </v-list>
+  <p>{{ selected }}</p>
 </template>
 
 <script setup>
 import { ref } from "vue";
 
 const items = ref(["Computers", "Shoes", "Cases"]);
+const selected = ref("computers");
 </script>
 
 <style lang="scss" scoped></style>

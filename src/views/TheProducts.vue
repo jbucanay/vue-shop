@@ -23,6 +23,7 @@
         </div>
         <div class="col-span">
           <v-select
+            v-model="filter"
             :items="selectItems"
             density="compact"
             class="mr-6"
@@ -59,6 +60,7 @@ import FilterByPrice from "@/components/FilterByPrice.vue";
 
 /*************** data ******************/
 const selectItems = ref(["Featured items", "Lowest Price", "Highest Price"]);
+const filter = ref("Featured items");
 /*************** store ******************/
 const Productstore = productsStore();
 const { returnProducts } = storeToRefs(Productstore);

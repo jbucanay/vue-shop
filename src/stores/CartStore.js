@@ -8,6 +8,7 @@ export const useCartStore = defineStore("cart", {
     addProductToCart(product) {
       const { id, name, price, selectedQuantity, type, image } = product;
       this.items.unshift(product);
+      console.log(product);
     },
     removeFromCart(id) {
       this.items = this.items.filter((item) => item.id !== id);

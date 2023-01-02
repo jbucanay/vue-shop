@@ -15,6 +15,7 @@
             v-for="media in item.media"
             :key="media.media_id"
             :value="media.media_link"
+            :model-value="media.media_id"
             active-class="border-orange-500 border-solid border-2"
           >
             <v-img
@@ -64,12 +65,32 @@
           <span>Select Delivery Location</span>
         </div>
         <label for="qty">qty</label><br />
-        <select name="qty" class="border-gray-500 border-solid border">
-          <option v-for="(inventory, i) in item.inventory.quantity" :key="i">
+        <select
+          name="qty"
+          class="border-gray-500 border-solid border"
+          v-model="selectedQuantity"
+        >
+          <option
+            v-for="(inventory, i) in item.inventory.quantity"
+            :key="i"
+            :value="inventory"
+          >
             {{ inventory }}
           </option>
         </select>
-        <base-button class="my-5 rounded-2xl w-full bg-yellow-400" rounded="3">
+        <base-button
+          class="my-5 rounded-2xl w-full bg-yellow-400"
+          rounded="3"
+          @click="
+            cartstore.addProductToCart({
+              selectedQuantity,
+              id: item.product_id,
+              image: item.media[0].media_link,
+              price: item.price,
+              name: item.product_name,
+            })
+          "
+        >
           <template #cartremove> Add to Cart </template>
         </base-button>
       </v-col>
@@ -80,15 +101,19 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref, computed } from "vue";
 import { productsStore } from "../stores/ProductsStore";
+import { useCartStore } from "@/stores/CartStore";
 import { storeToRefs } from "pinia";
 import BaseButton from "@/components/BaseButton.vue";
 
 //data
-const items = ref(["Computers", "Shoes", "Cases"]);
+const selectedImage = ref("");
+const selectedQuantity = ref(1);
+const selectItems = ref(["Featured items", "Lowest Price", "Highest Price"]);
+
+//store
 const productStore = productsStore();
 const { returnProducts: theProduct } = storeToRefs(productStore);
-
-//computed
+const cartstore = useCartStore();
 
 //lifecyclehooks
 onMounted(() => {
