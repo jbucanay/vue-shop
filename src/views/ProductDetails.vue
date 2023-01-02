@@ -1,5 +1,10 @@
 <template>
-  <v-container fluid v-for="item in theProduct" :key="item.product_id">
+  <v-container
+    fluid
+    v-for="item in theProduct"
+    :key="item.product_id"
+    class="mt-6"
+  >
     <v-row>
       <v-col>
         <p>small images</p>
@@ -34,8 +39,23 @@
       <v-col>
         <p>product details</p>
         <p>{{ item.product_name }}</p>
+        <div>
+          <span v-if="item.discount"
+            >-{{ item.discount.discount_percent }}% ${{
+              item.price - item.price * (item.discount.discount_percent / 100)
+            }}</span
+          >
+          <span v-else>${{ item.price }}</span>
+          <p v-if="item.discount">
+            List price: <span class="line-through">{{ item.price }}</span>
+          </p>
+        </div>
+        <h3 class="font-bold">About this item</h3>
+        <ul>
+          <li>{{ item.product_description }}</li>
+        </ul>
       </v-col>
-      <v-col>
+      <v-col class="border-solid border border-gray-500 rounded-md">
         <p>add to cart</p>
       </v-col>
     </v-row>
@@ -51,6 +71,8 @@ import { storeToRefs } from "pinia";
 const items = ref(["Computers", "Shoes", "Cases"]);
 const productStore = productsStore();
 const { returnProducts: theProduct } = storeToRefs(productStore);
+
+//computed
 
 //lifecyclehooks
 onMounted(() => {
