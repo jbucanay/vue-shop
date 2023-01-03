@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
-    items: new Set(),
+    items: [],
   }),
   actions: {
     addProductToCart(product, inventory) {
