@@ -6,10 +6,10 @@
     rounded="0"
     :style="'border-bottom: 2px solid gray;'"
   >
-    <v-card-title class="text-center text-3xl">Your Cart</v-card-title>
+    <v-card-title class="text-center text-3xl">Shopping Cart</v-card-title>
   </v-card>
   <h1 class="mt-6 font-semibold text-xl">
-    Total Amount ({{ itemsLength && cartItems.length }} {{ itemsLength }}) :
+    Subtotal ({{ itemsLength && cartItems.length }} {{ itemsLength }}) :
     <span class="ml-2 px-3 text-white bg-orange-800 rounded-full"
       >${{ bill }}</span
     >
