@@ -82,13 +82,19 @@
           class="my-5 rounded-2xl w-full bg-yellow-400"
           rounded="3"
           @click="
-            cartstore.addProductToCart({
-              selectedQuantity,
-              id: item.product_id,
-              image: item.media[0].media_link,
-              price: item.price,
-              name: item.product_name,
-            })
+            cartstore.addProductToCart(
+              {
+                selectedQuantity,
+                id: item.product_id,
+                image: item.media[0].media_link,
+                price: item.price,
+                name: item.product_name,
+              },
+              {
+                inventoryId: item.inventory.inventory_id,
+                remainder: item.inventory.quantity - selectedQuantity,
+              }
+            )
           "
         >
           <template #cartremove> Add to Cart </template>

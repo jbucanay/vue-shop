@@ -1,14 +1,25 @@
 import { defineStore } from "pinia";
+import axios from "axios";
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
     items: [],
   }),
   actions: {
-    addProductToCart(product) {
-      const { id, name, price, selectedQuantity, type, image } = product;
+    addProductToCart(product, inventory) {
+      const { inventoryId: id, remainder } = inventory;
       this.items.unshift(product);
-      console.log(product);
+      console.log(id);
+      // using patch vs put because patch maintains the old data and just changes requested info. Whereas put replaces the old data completely
+      axios
+        .patch(`http://localhost/api/inventory/${id}`, {
+          remainder,
+        })
+        .then((res) => {
+          // this.getProducts();
+          // console.log(res);
+        })
+        .catch((e) => console.log(e));
     },
     removeFromCart(id) {
       this.items = this.items.filter((item) => item.id !== id);
