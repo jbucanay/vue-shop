@@ -3,12 +3,25 @@ import axios from "axios";
 
 export const useCartStore = defineStore("cart", {
   state: () => ({
-    items: [],
+    items: new Set(),
   }),
   actions: {
     addProductToCart(product, inventory) {
       const { inventoryId: id, remainder } = inventory;
-      this.items.unshift(product);
+      const { id: productId, selectedQuantity } = product;
+
+      //check to see if the item exists in the cart
+      const productInCart = this.items.find(
+        (product) => product.id === productId
+      );
+
+      if (productInCart) {
+        productInCart.selectedQuantity += selectedQuantity;
+      } else {
+        this.items.unshift(product);
+      }
+
+      //update product quantity
       // using patch vs put because patch maintains the old data and just changes requested info. Whereas put replaces the old data completely
       axios
         .patch(`http://localhost/api/inventory/${id}`, {

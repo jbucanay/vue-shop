@@ -138,8 +138,6 @@ onBeforeUnmount(() => {
   // get rid of data in store everytime I save code.
   productStore.$reset();
 });
-
-onUpdated(() => console.log("updated"));
 </script>
 
 <style scoped></style>
