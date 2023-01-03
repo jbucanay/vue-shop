@@ -89,6 +89,7 @@
                 image: item.media[0].media_link,
                 price: item.price,
                 name: item.product_name,
+                inventoryId: item.inventory.inventory_id,
               },
               {
                 inventoryId: item.inventory.inventory_id,
@@ -105,11 +106,18 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref, computed } from "vue";
+import { onMounted, onBeforeUnmount, ref, onUpdated } from "vue";
 import { productsStore } from "../stores/ProductsStore";
 import { useCartStore } from "@/stores/CartStore";
 import { storeToRefs } from "pinia";
 import BaseButton from "@/components/BaseButton.vue";
+
+//props
+const props = defineProps({
+  id: {
+    required: true,
+  },
+});
 
 //data
 const selectedImage = ref("");
@@ -131,11 +139,7 @@ onBeforeUnmount(() => {
   productStore.$reset();
 });
 
-const props = defineProps({
-  id: {
-    required: true,
-  },
-});
+onUpdated(() => console.log("updated"));
 </script>
 
 <style scoped></style>
