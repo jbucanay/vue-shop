@@ -59,8 +59,12 @@ import TheCategories from "@/components/TheCategories.vue";
 import FilterByPrice from "@/components/FilterByPrice.vue";
 
 /*************** data ******************/
-const selectItems = ref(["Featured items", "Lowest Price", "Highest Price"]);
-const filter = ref("Featured items");
+const selectItems = ref([
+  "Featured",
+  "Price: Low to High",
+  "Price: High to Low",
+]);
+const filter = ref("Featured");
 /*************** store ******************/
 const Productstore = productsStore();
 const { returnProducts } = storeToRefs(Productstore);
